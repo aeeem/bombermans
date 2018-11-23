@@ -47,84 +47,45 @@ public class Player : MonoBehaviour
         {
             UpdatePlayer1Movement();
         }
-        else
-        {
-            UpdatePlayer2Movement();
-        }
+       
     }
 
     private void UpdatePlayer1Movement()
     {
-        if (Input.GetKey("joystick 1 button 0"))
+        if (Input.GetKey("w"))
         {
             rigidBody.velocity = new Vector3(rigidBody.velocity.x, rigidBody.velocity.y, moveSpeed);
             myTransform.rotation = Quaternion.Euler(0, 0, 0);
             animator.SetBool("Walking", true);
         }
 
-        if (Input.GetKey("joystick 1 button 3"))
+        if (Input.GetKey("a"))
         {
             rigidBody.velocity = new Vector3(-moveSpeed, rigidBody.velocity.y, rigidBody.velocity.z);
             myTransform.rotation = Quaternion.Euler(0, 270, 0);
             animator.SetBool("Walking", true);
         }
 
-        if (Input.GetKey("joystick 1 button 2"))
+        if (Input.GetKey("s"))
         {
             rigidBody.velocity = new Vector3(rigidBody.velocity.x, rigidBody.velocity.y, -moveSpeed);
             myTransform.rotation = Quaternion.Euler(0, 180, 0);
             animator.SetBool("Walking", true);
         }
 
-        if (Input.GetKey("joystick 1 button 1"))
+        if (Input.GetKey("d"))
         {
             rigidBody.velocity = new Vector3(moveSpeed, rigidBody.velocity.y, rigidBody.velocity.z);
             myTransform.rotation = Quaternion.Euler(0, 90, 0);
             animator.SetBool("Walking", true);
         }
 
-        if (Input.GetKey("joystick 1 button 4"))
+        if (Input.GetKey("space"))
         {
             DropBomb();
         }
     }
-
-    private void UpdatePlayer2Movement()
-    {
-        if (Input.GetKey("joystick 2 button 0"))
-        {
-            rigidBody.velocity = new Vector3(rigidBody.velocity.x, rigidBody.velocity.y, moveSpeed);
-            myTransform.rotation = Quaternion.Euler(0, 0, 0);
-            animator.SetBool("Walking", true);
-        }
-
-        if (Input.GetKey("joystick 2 button 3"))
-        {
-            rigidBody.velocity = new Vector3(-moveSpeed, rigidBody.velocity.y, rigidBody.velocity.z);
-            myTransform.rotation = Quaternion.Euler(0, 270, 0);
-            animator.SetBool("Walking", true);
-        }
-
-        if (Input.GetKey("joystick 2 button 2"))
-        {
-            rigidBody.velocity = new Vector3(rigidBody.velocity.x, rigidBody.velocity.y, -moveSpeed);
-            myTransform.rotation = Quaternion.Euler(0, 180, 0);
-            animator.SetBool("Walking", true);
-        }
-
-        if (Input.GetKey("joystick 2 button 1"))
-        {
-            rigidBody.velocity = new Vector3(moveSpeed, rigidBody.velocity.y, rigidBody.velocity.z);
-            myTransform.rotation = Quaternion.Euler(0, 90, 0);
-            animator.SetBool("Walking", true);
-        }
-        
-        if (Input.GetKey("joystick 2 button 4"))
-        {
-            DropBomb();
-        }
-    }
-
+    
     private void DropBomb()
     {
         if (bombPrefab)
